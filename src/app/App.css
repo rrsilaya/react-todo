@@ -1,0 +1,22 @@
+.container {
+  width: 40vw;
+  margin: 30px auto 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.todolist {
+  margin-top: 2em;
+}
+
+.flush-right {
+  text-align: right;
+}
+
+.done {
+  text-decoration: line-through;
+}
