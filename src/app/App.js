@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import './App.css';
 
-import TodoForm from '../features/todoForm/TodoForm';
-import TodoList from '../features/todoList/TodoList';
+import TodoFormContainer from '../features/todoForm/TodoFormContainer';
+import TodoListContainer from '../features/todoList/TodoListContainer';
 
 class App extends Component {
   render() {
@@ -11,8 +11,8 @@ class App extends Component {
       <div>
         <AppBar title="Todo App" />
         <div className="container">
-          <TodoForm />
-          <TodoList />
+          <TodoFormContainer />
+          <TodoListContainer />
         </div>
       </div>
     );

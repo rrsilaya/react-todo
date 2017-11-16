@@ -20,3 +20,8 @@
 .done {
   text-decoration: line-through;
 }
+
+.center {
+	width: 100%;
+	text-align: center;
+}

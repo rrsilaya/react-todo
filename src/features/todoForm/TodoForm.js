@@ -3,12 +3,23 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class TodoForm extends Component {
+  handleSubmit = e => {
+    e.preventDefault();
+    const todo = {
+      todo: e.target.todo.value,
+      isDone: false
+    };
+
+    this.props.handleAddTodo(todo);
+    e.target.reset();
+  }
+
   render() {
     return (
-      <div className="form">
-        <TextField hintText="Create Todo" floatingLabelText="New Todo" fullWidth />
-        <RaisedButton label="Create" primary />
-      </div>
+      <form className="form" onSubmit={this.handleSubmit}>
+        <TextField hintText="Create Todo" floatingLabelText="New Todo" name="todo" fullWidth />
+        <RaisedButton label="Create" primary type="submit" disabled={this.props.isAddingTodos} />
+      </form>
     );
   }
 }

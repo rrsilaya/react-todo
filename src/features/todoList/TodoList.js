@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import Todo from '../todo/Todo';
+import TodoContainer from '../todo/TodoContainer';
+
+import CircularProgress from 'material-ui/CircularProgress';
 
 class TodoList extends Component {
-  render() {
-    const todos = [{ todo: 'Learn Redux', isDone: false }, { todo: 'Learn React', isDone: false }];
+  componentDidMount() {
+    this.props.getTodos();
+  }
 
+  render() {
     return (
       <div className="todolist">
         {
-          todos.map((todo, i) => 
-            <Todo content={todo.todo} id={i + 1} isDone={todo.isDone} />
+          this.props.isGettingTodos ?
+          <div className="center"><CircularProgress /></div> :
+          this.props.hasError ?
+          <div className="center">An error has occured.</div> :
+          this.props.todos.map((todo, i) => 
+            <TodoContainer todo={todo.todo} id={todo.id} key={i} isDone={todo.isDone} />
           )
         }
       </div>
